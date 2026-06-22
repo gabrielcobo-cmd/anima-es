@@ -31,5 +31,11 @@ border: 5px solid #47d406;
 <script>
     const botão = document.querySelector("button");
     botão.addEventListener("click", botãoClicado);
+
+    function botãoClicado(){
+        console.log("Fui clicado");
+        let texto = botão.querySelector("span");
+        texto.textContent++;
+    }
 </script>
 </html>
