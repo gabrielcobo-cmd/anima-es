@@ -38,5 +38,14 @@ border: 5px solid #47d406;
     }
     botão.addEventListener("click", botãoClicado);
 
+const nobotão = document.getElementById("Não Butão");
+    
+    function nobotãoClicado(){
+    console.log("Fui clicado");
+        let texto = nobotão.querySelector("span");
+        texto.textContent++;
+    }
+    nobotão.addEventListener("click", nobotãoClicado);
+
 </script>
 </html>
