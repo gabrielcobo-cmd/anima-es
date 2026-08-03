@@ -1,51 +1,175 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Blog</title>
-</head>
-<body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Polo | O Futuro do Nosso Meio Ambiente</title>
     <style>
-        body{
-            header{
-border: 5px solid #47d406;
-           background-color: rgb(21, 105, 0);
-        color:black;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto
-      }
-           
+        /* Estilos Globais e Reset Simples */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #0f172a; /* Fundo escuro moderno */
+            color: #f8fafc;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        /* Container Principal do Card */
+        .article-container {
+            max-width: 750px;
+            margin: 40px auto;
+            background-color: #1e293b;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Cabeçalho do Card (Hero Section) */
+        header {
+            background: linear-gradient(135deg, #15803d 0%, #052e16 100%);
+            border-bottom: 4px solid #22c55e;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        /* Badge de Categoria para Gerar Curiosidade */
+        .category-tag {
+            display: inline-block;
+            background-color: rgba(34, 197, 94, 0.2);
+            color: #4ade80;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        header h2 {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            font-weight: 400;
+        }
+
+        /* Conteúdo do Post */
+        .post-content {
+            padding: 35px 30px 25px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+            color: #94a3b8;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 15px;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+            color: #e2e8f0;
+            text-align: justify;
+        }
+
+        /* Seção de Botões/Interação */
+        .actions {
+            display: flex;
+            gap: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #334155;
+        }
+
+        .btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #334155;
+            color: #f8fafc;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .btn-action:hover {
+            background-color: #475569;
+            transform: translateY(-2px);
+        }
+
+        .btn-action:active {
+            transform: translateY(0);
+        }
+
+        .btn-action span {
+            background-color: rgba(255, 255, 255, 0.15);
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.85rem;
         }
     </style>
-    <h1>Agro Polo</h1>
-    <h2>Meu primeiro post</h2>
-        <h3><p>Por: Gabriel Freitas</p></h3>
-    <p>Vim aqui para explicar a importância do Agro no nosso mundo. No último anos o nosso mei ambiente tem sofrido muito com descartes inapropriados, queima das matas, desmatamento e diversos outros motivos da sua atual decadência, coisa essa que não deveria estar acontecendo, pois a nosa natureza é uma da coias mais importantes, não só para nosso país financeiramente mas também importante para nossa saúde e saúde do planeta, deveriamos dar mais valor a ela motivos: Nossa natureza é rica em minerais em solo e fértil, também rendendo bastante com a exportação de produtos da natureza como vegetais, sementes e outras coisaem geral. Nossa vegetação também é usada para o reflorestamento de outras vegetações de diferentes regióes que foram afetadas por motivos já citados como queimas e demais acontecimentos</p>
-    <p>Eu, como estudante venho aqui dizer que é importante esse cuidado com o meio ambiente pois além de ser nossa obrigação é muito bom para nós pois além de não vivermoss sem a ajuda da natureza ela nos ajuda diariamente na nossa rotina até em grande escala ajudando o maior parte do mundo. Acabo de falar e expressar minha opinião sobre o assunto e agora desejo um bom dia, uma boa noite e obrigado por lerem meu post</p>
-   <button id="Butão">👍<span>0</span></button>
-   <button id="Não Butão">👎<span>0</span></button>
+</head>
+<body>
+
+    <article class="article-container">
+        <header>
+            <span class="category-tag">✦ Reflexão & Sustentabilidade</span>
+            <h1>Agro Polo</h1>
+            <h2>Você sabe qual é o verdadeiro impacto do Agro no nosso planeta?</h2>
+        </header>
+
+        <div class="post-content">
+            <div class="author-info">
+                <span>✍️ Por: <strong>Gabriel Freitas</strong></span>
+            </div>
+
+            <p>Vim aqui para explicar a importância do Agro no nosso mundo. Nos últimos anos, o nosso meio ambiente tem sofrido muito com descartes inapropriados, queimadas, desmatamento e diversos outros motivos da sua atual decadência. Isso não deveria estar acontecendo, pois a nossa natureza é uma das coisas mais importantes — não só para o nosso país financeiramente, mas também para a nossa saúde e a saúde do planeta.</p>
+            
+            <p>Deveríamos dar mais valor a ela por vários motivos: nossa natureza é rica em minerais e tem um solo fértil, rendendo bastante com a exportação de produtos como vegetais, sementes e artigos em geral. Nossa vegetação também é usada para o reflorestamento de áreas afetadas por degradações.</p>
+
+            <p>Eu, como estudante, venho dizer que esse cuidado com o meio ambiente é essencial. Além de ser nossa obrigação, não vivemos sem a ajuda da natureza; ela nos auxilia diariamente na nossa rotina e em grande escala no mundo todo. Agradeço a atenção de todos e obrigado por lerem meu post!</p>
+
+            <div class="actions">
+                <button id="btnGostei" class="btn-action">👍 <span>0</span></button>
+                <button id="btnNaoGostei" class="btn-action">👎 <span>0</span></button>
+            </div>
+        </div>
+    </article>
+
+    <script>
+        const btnGostei = document.getElementById("btnGostei");
+        btnGostei.addEventListener("click", () => {
+            let contador = btnGostei.querySelector("span");
+            contador.textContent = parseInt(contador.textContent) + 1;
+        });
+
+        const btnNaoGostei = document.getElementById("btnNaoGostei");
+        btnNaoGostei.addEventListener("click", () => {
+            let contador = btnNaoGostei.querySelector("span");
+            contador.textContent = parseInt(contador.textContent) + 1;
+        });
+    </script>
 </body>
-<script>
-    const botão = document.getElementById("Butão");
-    
-    function botãoClicado(){
-    console.log("Fui clicado");
-        let texto = botão.querySelector("span");
-        texto.textContent++;
-    }
-    botão.addEventListener("click", botãoClicado);
-
-const nobotão = document.getElementById("Não Butão");
-    
-    function nobotãoClicado(){
-    console.log("Fui clicado");
-        let texto = nobotão.querySelector("span");
-        texto.textContent++;
-    }
-    nobotão.addEventListener("click", nobotãoClicado);
-
-</script>
 </html>
