@@ -49,3 +49,48 @@ const nobotão = document.getElementById("Não Butão");
 
 </script>
 </html>
+class No:
+    """Classe que representa um nó individual na árvore."""
+    def __init__(self, valor):
+        self.valor = valor
+        self.esquerda = None
+        self.direita = None
+
+
+class ArvoreBinaria:
+    """Classe que gerencia a estrutura da árvore."""
+    def __init__(self):
+        self.raiz = None
+
+    def inserir(self, valor):
+        """Insere um novo valor na árvore de forma ordenada."""
+        if self.raiz is None:
+            self.raiz = No(valor)
+        else:
+            self._inserir_recursivo(self.raiz, valor)
+
+    def _inserir_recursivo(self, no_atual, valor):
+        if valor < no_atual.valor:
+            if no_atual.esquerda is None:
+                no_atual.esquerda = No(valor)
+            else:
+                self._inserir_recursivo(no_atual.esquerda, valor)
+        else:
+            if no_atual.direita is None:
+                no_atual.direita = No(valor)
+            else:
+                self._inserir_recursivo(no_atual.direita, valor)
+
+    def exibir_em_ordem(self, no_atual=None, primeiro_run=True):
+        """Imprime os valores da árvore em ordem crescente."""
+        if primeiro_run:
+            no_atual = self.raiz
+
+        if no_atual is not None:
+            self.exibir_em_ordem(no_atual.esquerda, False)
+            print(no_atual.valor, end=" ")
+            self.exibir_em_ordem(no_atual.direita, False)
+
+
+# --- Testando a Árvore ---
+if __
