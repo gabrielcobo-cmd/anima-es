@@ -49,48 +49,23 @@ const nobotão = document.getElementById("Não Butão");
 
 </script>
 </html>
-class No:
-    """Classe que representa um nó individual na árvore."""
-    def __init__(self, valor):
-        self.valor = valor
-        self.esquerda = None
-        self.direita = None
+import os
 
+def mostrar_arvore(diretorio, prefixo=""):
+    conteudo = sorted(os.listdir(diretorio))
+    # Filtra pastas/arquivos ocultos como .git
+    conteudo = [item for item in conteudo if not item.startswith('.')]
+    
+    for i, item in enumerate(conteudo):
+        caminho = os.path.join(diretorio, item)
+        e_ultimo = (i == len(conteudo) - 1)
+        
+        marcador = "└── " if e_ultimo else "├── "
+        print(prefixo + marcador + item)
+        
+        if os.path.isdir(caminho):
+            novo_prefixo = prefixo + ("    " if e_ultimo else "│   ")
+            mostrar_arvore(caminho, novo_prefixo)
 
-class ArvoreBinaria:
-    """Classe que gerencia a estrutura da árvore."""
-    def __init__(self):
-        self.raiz = None
-
-    def inserir(self, valor):
-        """Insere um novo valor na árvore de forma ordenada."""
-        if self.raiz is None:
-            self.raiz = No(valor)
-        else:
-            self._inserir_recursivo(self.raiz, valor)
-
-    def _inserir_recursivo(self, no_atual, valor):
-        if valor < no_atual.valor:
-            if no_atual.esquerda is None:
-                no_atual.esquerda = No(valor)
-            else:
-                self._inserir_recursivo(no_atual.esquerda, valor)
-        else:
-            if no_atual.direita is None:
-                no_atual.direita = No(valor)
-            else:
-                self._inserir_recursivo(no_atual.direita, valor)
-
-    def exibir_em_ordem(self, no_atual=None, primeiro_run=True):
-        """Imprime os valores da árvore em ordem crescente."""
-        if primeiro_run:
-            no_atual = self.raiz
-
-        if no_atual is not None:
-            self.exibir_em_ordem(no_atual.esquerda, False)
-            print(no_atual.valor, end=" ")
-            self.exibir_em_ordem(no_atual.direita, False)
-
-
-# --- Testando a Árvore ---
-if __
+# Executa na pasta atual
+mostrar_arvore(".")
