@@ -49,23 +49,3 @@ const nobotão = document.getElementById("Não Butão");
 
 </script>
 </html>
-import os
-
-def mostrar_arvore(diretorio, prefixo=""):
-    conteudo = sorted(os.listdir(diretorio))
-    # Filtra pastas/arquivos ocultos como .git
-    conteudo = [item for item in conteudo if not item.startswith('.')]
-    
-    for i, item in enumerate(conteudo):
-        caminho = os.path.join(diretorio, item)
-        e_ultimo = (i == len(conteudo) - 1)
-        
-        marcador = "└── " if e_ultimo else "├── "
-        print(prefixo + marcador + item)
-        
-        if os.path.isdir(caminho):
-            novo_prefixo = prefixo + ("    " if e_ultimo else "│   ")
-            mostrar_arvore(caminho, novo_prefixo)
-
-# Executa na pasta atual
-mostrar_arvore(".")
