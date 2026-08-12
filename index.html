@@ -125,6 +125,16 @@
             top: 0;
         }
 
+        /* Imagem Temática */
+        .post-image {
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin: 20px 0 25px 0;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         /* Seção de Botões/Interação */
         .actions {
             display: flex;
@@ -157,7 +167,7 @@
             transform: translateY(0);
         }
 
-        /* Estilo para quando o botão estiver ativado */
+        /* Estilos para estado ativo dos botões */
         .btn-action.active-like {
             background-color: #15803d;
             color: #ffffff;
@@ -205,6 +215,8 @@
 
             <p>Eu, como estudante, venho dizer que esse cuidado com o meio ambiente é essencial. Além de ser nossa obrigação, não vivemos sem a ajuda da natureza; ela nos auxilia diariamente na nossa rotina e em grande escala no mundo todo. Agradeço a atenção de todos e obrigado por lerem meu post!</p>
 
+            <img class="post-image" src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1000&q=80" alt="Campo agrícola sustentável ao pôr do sol">
+
             <div class="actions">
                 <button id="btnGostei" class="btn-action">👍 <span>0</span></button>
                 <button id="btnNaoGostei" class="btn-action">👎 <span>0</span></button>
@@ -213,30 +225,54 @@
     </article>
 
     <script>
-        // Função auxiliar para alternar o voto
-        function toggleVoto(btn, classeAtiva) {
+        const btnGostei = document.getElementById("btnGostei");
+        const btnNaoGostei = document.getElementById("btnNaoGostei");
+
+        function ajustarContador(btn, delta) {
             const contador = btn.querySelector("span");
-            let valorAtual = parseInt(contador.textContent);
-            
-            if (btn.classList.contains(classeAtiva)) {
-                // Se já estava clicado, decrementa e remove a classe ativa
-                contador.textContent = valorAtual - 1;
-                btn.classList.remove(classeAtiva);
-            } else {
-                // Se não estava clicado, incrementa e adiciona a classe ativa
-                contador.textContent = valorAtual + 1;
-                btn.classList.add(classeAtiva);
-            }
+            contador.textContent = parseInt(contador.textContent) + delta;
         }
 
-        const btnGostei = document.getElementById("btnGostei");
         btnGostei.addEventListener("click", () => {
-            toggleVoto(btnGostei, "active-like");
+            const jaCurtiu = btnGostei.classList.contains("active-like");
+            const jaDescurtiu = btnNaoGostei.classList.contains("active-dislike");
+
+            if (jaCurtiu) {
+                // Remove a curtida
+                btnGostei.classList.remove("active-like");
+                ajustarContador(btnGostei, -1);
+            } else {
+                // Adiciona a curtida
+                btnGostei.classList.add("active-like");
+                ajustarContador(btnGostei, 1);
+
+                // Se o "não gostei" estava ativo, desativa ele
+                if (jaDescurtiu) {
+                    btnNaoGostei.classList.remove("active-dislike");
+                    ajustarContador(btnNaoGostei, -1);
+                }
+            }
         });
 
-        const btnNaoGostei = document.getElementById("btnNaoGostei");
         btnNaoGostei.addEventListener("click", () => {
-            toggleVoto(btnNaoGostei, "active-dislike");
+            const jaCurtiu = btnGostei.classList.contains("active-like");
+            const jaDescurtiu = btnNaoGostei.classList.contains("active-dislike");
+
+            if (jaDescurtiu) {
+                // Remove o deslike
+                btnNaoGostei.classList.remove("active-dislike");
+                ajustarContador(btnNaoGostei, -1);
+            } else {
+                // Adiciona o deslike
+                btnNaoGostei.classList.add("active-dislike");
+                ajustarContador(btnNaoGostei, 1);
+
+                // Se o "gostei" estava ativo, desativa ele
+                if (jaCurtiu) {
+                    btnGostei.classList.remove("active-like");
+                    ajustarContador(btnGostei, -1);
+                }
+            }
         });
     </script>
 </body>
