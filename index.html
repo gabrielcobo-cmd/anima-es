@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -40,7 +39,7 @@
             text-align: center;
         }
 
-        /* Badge de Categoria para Gerar Curiosidade */
+        /* Badge de Categoria */
         .category-tag {
             display: inline-block;
             background-color: rgba(34, 197, 94, 0.2);
@@ -91,6 +90,41 @@
             text-align: justify;
         }
 
+        /* Seção de Curiosidades */
+        .curiosities-box {
+            background-color: rgba(15, 23, 42, 0.6);
+            border-left: 4px solid #22c55e;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+
+        .curiosities-box h3 {
+            color: #4ade80;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+
+        .curiosities-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .curiosities-box li {
+            margin-bottom: 10px;
+            font-size: 0.98rem;
+            color: #cbd5e1;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .curiosities-box li::before {
+            content: "🌱";
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
         /* Seção de Botões/Interação */
         .actions {
             display: flex;
@@ -123,6 +157,17 @@
             transform: translateY(0);
         }
 
+        /* Estilo para quando o botão estiver ativado */
+        .btn-action.active-like {
+            background-color: #15803d;
+            color: #ffffff;
+        }
+
+        .btn-action.active-dislike {
+            background-color: #991b1b;
+            color: #ffffff;
+        }
+
         .btn-action span {
             background-color: rgba(255, 255, 255, 0.15);
             padding: 2px 8px;
@@ -135,41 +180,4 @@
 
     <article class="article-container">
         <header>
-            <span class="category-tag">✦ Reflexão & Sustentabilidade</span>
-            <h1>Agro Polo</h1>
-            <h2>Você sabe qual é o verdadeiro impacto do Agro no nosso planeta?</h2>
-        </header>
-
-        <div class="post-content">
-            <div class="author-info">
-                <span>✍️ Por: <strong>Gabriel Freitas</strong></span>
-            </div>
-
-            <p>Vim aqui para explicar a importância do Agro no nosso mundo. Nos últimos anos, o nosso meio ambiente tem sofrido muito com descartes inapropriados, queimadas, desmatamento e diversos outros motivos da sua atual decadência. Isso não deveria estar acontecendo, pois a nossa natureza é uma das coisas mais importantes — não só para o nosso país financeiramente, mas também para a nossa saúde e a saúde do planeta.</p>
-            
-            <p>Deveríamos dar mais valor a ela por vários motivos: nossa natureza é rica em minerais e tem um solo fértil, rendendo bastante com a exportação de produtos como vegetais, sementes e artigos em geral. Nossa vegetação também é usada para o reflorestamento de áreas afetadas por degradações.</p>
-
-            <p>Eu, como estudante, venho dizer que esse cuidado com o meio ambiente é essencial. Além de ser nossa obrigação, não vivemos sem a ajuda da natureza; ela nos auxilia diariamente na nossa rotina e em grande escala no mundo todo. Agradeço a atenção de todos e obrigado por lerem meu post!</p>
-
-            <div class="actions">
-                <button id="btnGostei" class="btn-action">👍 <span>0</span></button>
-                <button id="btnNaoGostei" class="btn-action">👎 <span>0</span></button>
-            </div>
-        </div>
-    </article>
-
-    <script>
-        const btnGostei = document.getElementById("btnGostei");
-        btnGostei.addEventListener("click", () => {
-            let contador = btnGostei.querySelector("span");
-            contador.textContent = parseInt(contador.textContent) + 1;
-        });
-
-        const btnNaoGostei = document.getElementById("btnNaoGostei");
-        btnNaoGostei.addEventListener("click", () => {
-            let contador = btnNaoGostei.querySelector("span");
-            contador.textContent = parseInt(contador.textContent) + 1;
-        });
-    </script>
-</body>
-</html>
+            <span class="category-tag">✦ Reflexão
