@@ -180,4 +180,64 @@
 
     <article class="article-container">
         <header>
-            <span class="category-tag">✦ Reflexão
+            <span class="category-tag">✦ Reflexão & Sustentabilidade</span>
+            <h1>Agro Polo</h1>
+            <h2>Você sabe qual é o verdadeiro impacto do Agro no nosso planeta?</h2>
+        </header>
+
+        <div class="post-content">
+            <div class="author-info">
+                <span>✍️ Por: <strong>Gabriel Freitas</strong></span>
+            </div>
+
+            <p>Vim aqui para explicar a importância do Agro no nosso mundo. Nos últimos anos, o nosso meio ambiente tem sofrido muito com descartes inapropriados, queimadas, desmatamento e diversos outros motivos da sua atual decadência. Isso não deveria estar acontecendo, pois a nossa natureza é uma das coisas mais importantes — não só para o nosso país financeiramente, mas também para a nossa saúde e a saúde do planeta.</p>
+            
+            <p>Deveríamos dar mais valor a ela por vários motivos: nossa natureza é rica em minerais e tem um solo fértil, rendendo bastante com a exportação de produtos como vegetais, sementes e artigos em geral. Nossa vegetação também é usada para o reflorestamento de áreas afetadas por degradações.</p>
+
+            <div class="curiosities-box">
+                <h3>💡 Você Sabia? (Curiosidades do Agro)</h3>
+                <ul>
+                    <li><strong>Plantio Direto:</strong> O Brasil é referência em técnicas que reduzem a erosão mantendo a palhada sobre a terra, economizando água e combustível.</li>
+                    <li><strong>Bioinsumos:</strong> Micro-organismos e defensivos naturais vêm substituindo produtos químicos, protegendo a biodiversidade do solo.</li>
+                    <li><strong>Tecnologia de Ponta:</strong> Drones e sensores de IA são usados no campo para mapear pragas e aplicar insumos apenas onde é estritamente necessário.</li>
+                </ul>
+            </div>
+
+            <p>Eu, como estudante, venho dizer que esse cuidado com o meio ambiente é essencial. Além de ser nossa obrigação, não vivemos sem a ajuda da natureza; ela nos auxilia diariamente na nossa rotina e em grande escala no mundo todo. Agradeço a atenção de todos e obrigado por lerem meu post!</p>
+
+            <div class="actions">
+                <button id="btnGostei" class="btn-action">👍 <span>0</span></button>
+                <button id="btnNaoGostei" class="btn-action">👎 <span>0</span></button>
+            </div>
+        </div>
+    </article>
+
+    <script>
+        // Função auxiliar para alternar o voto
+        function toggleVoto(btn, classeAtiva) {
+            const contador = btn.querySelector("span");
+            let valorAtual = parseInt(contador.textContent);
+            
+            if (btn.classList.contains(classeAtiva)) {
+                // Se já estava clicado, decrementa e remove a classe ativa
+                contador.textContent = valorAtual - 1;
+                btn.classList.remove(classeAtiva);
+            } else {
+                // Se não estava clicado, incrementa e adiciona a classe ativa
+                contador.textContent = valorAtual + 1;
+                btn.classList.add(classeAtiva);
+            }
+        }
+
+        const btnGostei = document.getElementById("btnGostei");
+        btnGostei.addEventListener("click", () => {
+            toggleVoto(btnGostei, "active-like");
+        });
+
+        const btnNaoGostei = document.getElementById("btnNaoGostei");
+        btnNaoGostei.addEventListener("click", () => {
+            toggleVoto(btnNaoGostei, "active-dislike");
+        });
+    </script>
+</body>
+</html>
